@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #7276a7;
+        }
+
+        .heading {
+            display: flex;
+            justify-content: center;
+        }
+
+        .heading h1 {
+            font-size: 2.1rem;
+            background-color: black;
+            color: white;
+            box-shadow: 7px 10px 10px 1px #3f563f;
+            padding: 10px;
+            background: linear-gradient(to right, red, green);
+            font-weight: bold;
+        }
+
+        .computec-logo {
+            box-shadow: 7px 10px 10px 1px #3f563f;
+        }
+
+
+        .cont {
+            font-weight: 500px;
+        }
+
+        .cont p {
+            margin: 0;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .form-container .child {
+            background-color: #3f563f;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .margin {
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select {
+            padding: 5px;
+            width: 380px;
+        }
+
+        .submit {
+            background-color: #ffd400;
+            color: black;
+            padding: 6px 25px 6px 25px;
+            border-radius: 15px;
+            font-weight: bold;
+        }
+
+        .submit:hover {
+            box-shadow: 1px 1px 10px 4px rgb(131, 128, 128);
+        }
+
+        /* responsive */
+
+        @media (max-width:430px) {
+
+            input[type="text"],
+            input[type="email"],
+            input[type="number"],
+            select {
+                width: 300px;
+            }
+
+            .heading h1 {
+                font-size: 6vw;
+            }
+        }
+
+        @media (max-width:414px) {
+            .form-container .child {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width:390px) {
+
+            input[type="text"],
+            input[type="email"],
+            input[type="number"],
+            select {
+                width: 250px;
+            }
+        }
+
+
+        /* js css */
+        .error-border {
+            border: 2px solid red;
+        }
+
+        .span-error {
+            color: red;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="heading">
+        <h1>FREELANCING AGENCY</h1>
+    </div>
+
+    <div class="form-container">
+        <div class="child">
+            <form action="">
+
+                <div class="cont">
+                    <label for="name">Name</label><br>
+                    <input type="text" id="name" placeholder="Enter Your Name">
+                    <p id="required1"> </p>
+                </div>
+
+                <div class="margin cont">
+                    <label for="email">Email</label><br>
+                    <input type="email" name="email" id="email" placeholder="Enter Your Email">
+                    <p id="required2"> </p>
+                </div>
+                <div class="margin cont">
+                    <label for="age">Age</label><br>
+                    <input type="number" name="age" id="age" placeholder="Enter Your Age">
+                    <p id="required3"></p>
+                </div>
+                <div class="margin cont">
+                    <label for="role">Which options best describe you ?</label><br>
+                    <select>
+                        <option value="student" selected disabled>student</option>
+                        <option value="developer">developer</option>
+                        <option value="enterprenur">enterprenur</option>
+                        <option value="employee">employee</option>
+                    </select>
+                </div>
+
+                <div class="margin cont">
+                    <label for="ask">Would you recommend GeeksforGeeks to a friend</label><br>
+                    <input type="radio" name="radio" id="yes"><label for="yes">yes</label><br>
+                    <input type="radio" name="radio" id="no"><label for="no">No</label><br>
+                    <input type="radio" name="radio" id="maybe"><label for="maybe">Maybe</label>
+                </div>
+
+                <div class="margin cont">
+                    <label for="checkbox">Language and Frameworks Known(check all that apply)</label><br>
+                    <input type="checkbox" name="c" id="c"><label for="c">C</label><br>
+                    <input type="checkbox" name="c++" id="c++"><label for="c++">C++</label><br>
+                    <input type="checkbox" name="java" id="java"><label for="java">Java</label><br>
+                    <input type="checkbox" name="javascript" id="javascript"><label
+                        for="javascript">Javascript</label><br>
+                    <input type="checkbox" name="python" id="python"><label for="python">Python</label><br>
+                    <input type="checkbox" name="django" id="django"><label for="django">Django</label><br>
+                    <input type="checkbox" name="react" id="react"><label for="react">React</label><br>
+                    <input type="checkbox" name="angular" id="angular"><label for="angular">Angular</label><br>
+                    <input type="checkbox" name="spring" id="spring"><label for="spring">Spring</label><br>
+                    <input type="checkbox" name="c#" id="c#"><label for="c#">C#</label>
+                </div>
+
+                <button type="button" class="margin submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+        let a = document.getElementById("name");
+        let a1 = document.getElementById("required1");
+
+        a.addEventListener("input", function () {
+            if (a.value.length <= 0) {
+                a1.textContent = "please enter your name";
+                a1.classList.add("span-error")
+                a.classList.add("error-border");
+                a.blur();
+            }
+            else {
+                a1.innerHTML = ""
+                a.classList.remove("error-border");
+            }
+        })
+
+        let b = document.getElementById("email");
+        let b1 = document.getElementById("required2");
+
+        b.addEventListener("input", function () {
+            // !emailPattern.test(b.value)
+
+            if (b.value.length <= 0) {
+                b1.innerHTML = "please enter a valid email";
+                b1.classList.add("span-error")
+                b.classList.add("error-border");
+                b.blur();
+                // the blur() method is called to remove focus from the input field. This way, the focus will not stay anymore and your red mark appear immediately..
+            }
+
+
+            else {
+                b1.innerHTML = " "
+                b.classList.remove("error-border");
+            }
+
+
+        })
+
+        let c = document.getElementById("age");
+        let c1 = document.getElementById("required3");
+
+        c.addEventListener("input", function () {
+            let d = c.value;
+            let m = d.trim();
+            // (/^\s*$/.test()) it is used to test/check the empty space is their or not.
+            if (m == "") {
+                c1.innerHTML = "please enter your age"
+                c1.classList.add("span-error")
+                c.classList.add("error-border");
+                c.blur();
+            }
+            else if (c.value <= 0) {
+                c1.innerHTML = "please enter your valid age"
+                c1.classList.add("span-error")
+                c.classList.add("error-border");
+                c.blur();
+            }
+            else {
+                c1.innerHTML = ""
+                c.classList.remove("error-border");
+            }
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
